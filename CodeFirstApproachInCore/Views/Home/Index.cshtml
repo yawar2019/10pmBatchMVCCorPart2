@@ -1,0 +1,57 @@
+﻿@*@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers*@
+
+@model EmployeeModel
+@{
+    ViewData["Title"] = "Index";
+
+    var param = new Dictionary<string, string> {
+        {"FirstName","James" },
+        {"LastName","Brown"}
+    };
+}
+
+<h1>Index</h1>
+
+@*<a asp-protocol="https" asp-host="www.myit.com"
+    asp-controller="Home"
+    asp-action="test"
+    asp-route-id="1234"
+    asp-route-name="Kartik">asdfasd</a>*@
+
+<a 
+   asp-controller="Home"
+   asp-action="test"
+   asp-all-route-data="param" asp-fragment="hello">asdfasd</a>
+
+<form asp-controller="Home" asp-action="test" method="post">
+    <input type="submit" name="name" value="submit" />
+</form>
+
+
+<img src="~/jungle.jpg" alt="hi" class="img" asp-append-version="true" />
+
+<environment include="Prod">
+   Hi a im prod 
+</environment>
+<environment exclude="Prod">
+    Hi a im Devevelopment
+</environment>
+
+<form asp-action="Index" method="post">
+    <label asp-for="EmpName"></label>
+    <input asp-for="EmpName" />
+    <br />
+    @*<select asp-for="Country">
+        <option>India</option>
+        <option>Japan</option>
+        <option>China</option>
+    </select>*@
+    <br />
+    <select asp-for="Country" asp-items="@ViewBag.Country"></select>
+
+    @*<select asp-for="EmpName" asp-items="Html.GetEnumSelectList<StaffEnum>()"></select>*@
+   <input type="submit" value="submit" />
+</form>
+
+
+    
