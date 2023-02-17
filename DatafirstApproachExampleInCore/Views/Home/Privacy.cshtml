@@ -1,0 +1,12 @@
+﻿@inject Microsoft.Extensions.Configuration.IConfiguration iconfig
+
+@{
+    ViewData["Title"] = "Privacy Policy";
+    var a = iconfig.GetSection("Students:Ece");
+}
+<h1>@ViewData["Title"]</h1>
+
+<p>Use this page to detail your site's privacy policy.</p>
+
+
+@a.Value 
